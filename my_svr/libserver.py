@@ -65,6 +65,7 @@ class Message:
                     # self.close()
                     # 我的新增： _send_buffer，为空，说明写完毕，将其置为False（恢复如初）,以便下次还能写！
                     self.response_created = False
+                    self._set_selector_events_mask("r")
 
     def _json_encode(self, obj, encoding):
         return json.dumps(obj, ensure_ascii=False).encode(encoding)
